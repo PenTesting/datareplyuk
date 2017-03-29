@@ -1,4 +1,4 @@
-# Company neighbourhood Instantiator.
+# Company Neighbourhood Instantiator
 The purpose of this package is to collect data specific to a company as well as to the <b>direct (n-hop)</b> network of that company and import that data into Neo4j for inspection. The relationships identified between two companies are based on intermediate links between officers participating in both. Officers may participate in companies with different roles. These roles are captured to characterise the different kinds of relationships.
 
 The code is executed in an iterative fashion relying on a [Breadth First Search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search) approach and stops either if no more neighbours can be found or if the maximum n-hops distance from the root company has been covered (e.g. 10 hops).
@@ -14,7 +14,7 @@ Code Documentation;
 TODO: Gaps to be addressed,and;
 Credits;
 
-## Installation & Running.
+## Installation & Running
 If you are using pyCharm then almost all packages necessary for running this code will be automatically installed. To run the package you need to first have a live Neo4j session running on your machine. Make sure that the Neo4j instance is running on <b>localhost</b> and that the access credentials are correct. These are found in [module_neo4j.py](./module_neo4j.py) in line: 7:
 ```python
 graph = Graph('localhost', user='neo4j', password='neo4j1')
@@ -27,7 +27,7 @@ password = ''
 response = requests.get(url=call, auth=HTTPBasicAuth(username, password))
 ```
 
-## Code Documentation: The Package Modules & How they are used.
+## Code Documentation: The Package Modules & How they are used
 
 ### init.py
 The <b>main</b> part of the code which takes as input a company's unique identifier and starts building its <b>neighbourhood network</b>.The network is built using a <b>Breadth First Search (BFS)</b> approach. The process goes through the following steps:
@@ -51,7 +51,7 @@ share the same director).
 ### module_company.py
 The <b>company module</b> is where the company profile is saved. The file also includes a routine for collecting a company's active officers.
 
-### module_officer.pys
+### module_officer.py
 The <b>officer module</b> is where the company profile is saved. The file also includes a routine for collecting an officer's active participation in other companies.
 
 ### module_neo4j.py
@@ -64,7 +64,7 @@ graph.schema.create_uniqueness_constraint('Company', 'id')
 
 This is a py2neo driver issue that hasn’t been addressed yet and thus needs to be dealt with manually.
 
-## TODO: Gaps to be addressed.
+## TODO: Gaps to be addressed
 
 <b>TODO 1:</b> The main problem that needs to be addressed (and which is already partly addressed in the code) is that of duplicate entries on the company house database. It seems like a single officer with multiple placements might appear in the database with many unique ids but be the same person. In addition, some directors register themselves with what maybe minor typos in their names or purposely added hyphens etc., e.g (<b>Richard</b>-James <b>ACREMAN</b>) and (<b>Richard</b> James <b>ACREMAN</b>) and (<b>Richard ACREMAN</b>) seem to be the same person.
 
@@ -74,9 +74,9 @@ At the time of writing (11/08/2016), we instantiate distinct nodes for different
 
 <b>PROPOSITION:</b> I think that it is worth investing some time in the future to produce some rules for fuzzy joining these nodes - we will have to face this problem eventually anyway.
 
-<b>TODO 2:</b> Delete known_hosts file from `/user/.neo4j/known_hosts`
+<b>TODO 2:</b> Add a automatically delete known_hosts file from `/user/.neo4j/known_hosts` for first link between py2neo & neo4j. 
 
-## Contributing.
+## Contributing
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
