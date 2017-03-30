@@ -154,9 +154,8 @@ def get_company_neighbourhood(company_id):
                     print("-----------------------------------------------------------------------")
                     # Yet another essay! Sorry but this needs some extensive elaboration. Almost
                     # anywhere we look for director data, for reasons we still don't get, it seems
-                    # like the same people are stored under multiple unique identifiers. For
-                    # example, Danielle Angelucci has a different id for Reply Ltd and another one
-                    # for Avvio Reply. This calls for some fuzzy join to resolve redundancies.
+                    # like the same people are stored under multiple unique identifiers. This calls
+                    # for some fuzzy join to resolve redundancies.
                     #
                     # Unfortunately, when stored with different ids, it is usually the case that they
                     # are not stored with all possible attributes they actually have, so we can only

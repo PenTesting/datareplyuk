@@ -66,7 +66,7 @@ This is a py2neo driver issue that hasn’t been addressed yet and thus needs to
 
 ## TODO: Gaps to be addressed
 
-<b>TODO 1:</b> The main problem that needs to be addressed (and which is already partly addressed in the code) is that of duplicate entries on the company house database. It seems like a single officer with multiple placements might appear in the database with many unique ids but be the same person. In addition, some directors register themselves with what maybe minor typos in their names or purposely added hyphens etc., e.g (<b>Richard</b>-James <b>ACREMAN</b>) and (<b>Richard</b> James <b>ACREMAN</b>) and (<b>Richard ACREMAN</b>) seem to be the same person.
+<b>TODO 1:</b> The main problem that needs to be addressed (and which is already partly addressed in the code) is that of duplicate entries on the company house database. It seems like a single officer with multiple placements might appear in the database with many unique ids but be the same person. In addition, some directors register themselves with what maybe minor typos in their names or purposely added hyphens etc.
 
 This makes it even more difficult to link people based on having the same name.
 
@@ -74,7 +74,7 @@ At the time of writing (11/08/2016), we instantiate distinct nodes for different
 
 <b>PROPOSITION:</b> I think that it is worth investing some time in the future to produce some rules for fuzzy joining these nodes - we will have to face this problem eventually anyway.
 
-<b>TODO 2:</b> Add a automatically delete known_hosts file from `/user/.neo4j/known_hosts` for first link between py2neo & neo4j. 
+<b>TODO 2:</b> Add a automatically delete known_hosts file from `/user/.neo4j/known_hosts` for first link between py2neo & neo4j.
 
 ## Contributing
 
