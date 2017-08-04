@@ -24,6 +24,11 @@ LINK = 'http://beta.charitycommission.gov.uk/charity-search/?q='
 
 # Methods' section
 def get_ids(registered_charities_df):
+    """
+    The method collects the id of each charity in the xlsx register.
+    :param registered_charities_df: The xlsx register in the form of a df.
+    :return: The same dataframe extended with an id column
+    """
 
     # Create an empty dataframe for storing the respective id for every registered charity
     registered_charities_df["id"] = ""
@@ -100,5 +105,7 @@ if __name__ == "__main__":
     # e.g. http://beta.charitycommission.gov.uk/charity-details/?regid=1060508&subid=0
     # use this class --> ~/src/data/Charity.py
 
+    # The function should got to http://beta.charitycommission.gov.uk/charity-details/?regid= <<ID>>
     # get_info(CHARITIES_WITH_IDS = get_ids(REGISTERED_CHARITIESS_DF))
+
 
