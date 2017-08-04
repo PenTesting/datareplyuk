@@ -108,4 +108,6 @@ if __name__ == "__main__":
     # The function should got to http://beta.charitycommission.gov.uk/charity-details/?regid= <<ID>>
     # get_info(CHARITIES_WITH_IDS = get_ids(REGISTERED_CHARITIESS_DF))
 
+    # TODO: fix error in my code
+    # run it and you will see it... some extract ifs shoud do it (if None...blah blah)
 
