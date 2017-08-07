@@ -1,3 +1,8 @@
+"""
+Created by:     Dr. Christos Hadjinikolis, Sr. Data Scientist | Data Reply UK
+Date:           04/08/2017
+Description:    This module is used for testing purposes.
+"""
 import sys
 
 REQUIRED_PYTHON = "python"

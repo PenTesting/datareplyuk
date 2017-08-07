@@ -4,6 +4,7 @@ Date:           04/08/2017
 Description:    This module is used for loading environment variables and directory paths.
 """
 import os
+
 import dotenv
 
 # Configure path variables

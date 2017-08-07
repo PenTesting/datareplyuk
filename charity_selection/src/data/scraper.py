@@ -4,18 +4,18 @@ Sr. Data Scientist | Data Reply UK
 
 Description: Scraping html from checkDirector.co.uk with beautifulSoup & TOR
 """
+import os
 import socket
-import sys
 import time
 import urllib.request as req
 from urllib.parse import quote
 
 import pandas as pd
 import socks
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup as bS
 from tqdm import tqdm
 
-from settings import *
+from settings import INTERIM, EXTERNAL
 
 # Global Variables
 DEBUG = False
@@ -55,7 +55,7 @@ def get_ids(registered_charities_df):
                 html = response.read()
 
                 # load url and parse it with beatiful soup
-                soup = bs(html, "html.parser")
+                soup = bS(html, "html.parser")
 
                 top_result_id = soup\
                     .find("ol", class_="results-list")\
@@ -79,8 +79,8 @@ def get_ids(registered_charities_df):
                     socket.timeout,
                     req.HTTPError,
                     socks.GeneralProxyError,
-                    IOError) as e:
-                print('Error: ' + e)
+                    IOError) as error:
+                print('Error: ' + error)
 
     registered_charities_df.to_csv(os.path.join(INTERIM, 'charities_with_ids.csv'))
 
@@ -88,9 +88,14 @@ def get_ids(registered_charities_df):
 
 
 def get_info(charities_with_ids):
+    """
+    A function that collects data info for every registered charity.
+    :param charities_with_ids: A dataframe of Charity Names and their respective ids (df).
+    :return: An extended df with additional columns; 1 for every piece of information collected (df)
+    """
 
     # TODO: Implement this method
-    print("To complete")
+    print("To complete...")
 
 # Main method
 if __name__ == "__main__":
@@ -110,4 +115,3 @@ if __name__ == "__main__":
 
     # TODO: fix error in my code
     # run it and you will see it... some extract ifs shoud do it (if None...blah blah)
-
