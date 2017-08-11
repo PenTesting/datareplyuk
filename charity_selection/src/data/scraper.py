@@ -57,11 +57,14 @@ def get_ids(registered_charities_df):
                 # load url and parse it with beatiful soup
                 soup = bS(html, "html.parser")
 
-                top_result_id = soup\
-                    .find("ol", class_="results-list")\
-                    .find("li", class_="EvenRow")\
-                    .find("h3")\
-                    .find("a")['title'].split(":")[1:][0]
+                try:
+                    top_result_id = soup\
+                        .find("ol", class_="results-list")\
+                        .find("li", class_="EvenRow")\
+                        .find("h3")\
+                        .find("a")['title'].split(":")[1:][0]
+                except (AttributeError):
+                    print("Missed due to error")
 
                 # Add id to dataframe
                 registered_charities_df['id'][i] = top_result_id
@@ -114,4 +117,4 @@ if __name__ == "__main__":
     # get_info(CHARITIES_WITH_IDS = get_ids(REGISTERED_CHARITIESS_DF))
 
     # TODO: fix error in my code
-    # run it and you will see it... some extract ifs shoud do it (if None...blah blah)
+    # run it and you will see it... some extract ifs should do it (if None...blah blah)

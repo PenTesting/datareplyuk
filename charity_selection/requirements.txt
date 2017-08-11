@@ -8,3 +8,5 @@ Sphinx
 coverage
 awscli
 flake8
+requests
+PySocks
