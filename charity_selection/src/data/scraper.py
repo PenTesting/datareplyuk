@@ -15,7 +15,7 @@ import socks
 from bs4 import BeautifulSoup as bS
 from tqdm import tqdm
 
-from settings import INTERIM, EXTERNAL
+from settings import EXTERNAL, INTERIM
 
 # Global Variables
 DEBUG = False
@@ -63,7 +63,7 @@ def get_ids(registered_charities_df):
                         .find("li", class_="EvenRow")\
                         .find("h3")\
                         .find("a")['title'].split(":")[1:][0]
-                except (AttributeError):
+                except AttributeError:
                     print("Missed due to error")
 
                 # Add id to dataframe
@@ -115,6 +115,3 @@ if __name__ == "__main__":
 
     # The function should got to http://beta.charitycommission.gov.uk/charity-details/?regid= <<ID>>
     # get_info(CHARITIES_WITH_IDS = get_ids(REGISTERED_CHARITIESS_DF))
-
-    # TODO: fix error in my code
-    # run it and you will see it... some extract ifs should do it (if None...blah blah)
