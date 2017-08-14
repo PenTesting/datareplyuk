@@ -1,5 +1,5 @@
 """
-Created by:     Dr. Christos Hadjinikolis, Sr. Data Scientist | Data Reply UK
+Created by:     Dr. Christos Hadjinikolis, Sr. Data Scientist & Kaxil Naik, Big Data Consultant| Data Reply UK
 Date:           04/08/2017
 Description:    This module is used for loading environment variables and directory paths.
 """
